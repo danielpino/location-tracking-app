@@ -27,17 +27,6 @@ router.get('/', (req, res) => {
 })
 
 //get add user page -> render add_user view
-router.get('/:userId', (req, res) => {
-    var userId = req.params.userId;
-    console.log(`Loading user page`)
-    UserModel.findById(userId)
-        .then((user) => {
-            res.send(user);
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-})
 
 //post user -> add new user and redirect to get users
 router.post('/', function (req, res) {
@@ -56,7 +45,31 @@ router.post('/', function (req, res) {
 });
 
 //get specific user -> render show_one_user view
+router.get('/:userId', (req, res) => {
+    var userId = req.params.userId;
+    console.log(`Loading user page`)
+    UserModel.findById(userId)
+        .then((user) => {
+            res.send(user);
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
+
 //edit specific user -> get user and render edit_user page
+router.get('/:userId/edit', (req, res) => {
+    const userId = req.params.userId;
+    console.log(`Getting user: ${userId}`)
+
+    UserModel.findById(userId)
+        .then((user) => {
+            res.render('edit_user', {
+                user
+            })
+        })
+})
+
 //put user -> update existing user and redirect to get users
 
 //delete user -> delete user and redirect to users
