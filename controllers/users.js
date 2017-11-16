@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 router.get('/add', (req, res) => {
     const userId = req.params.userId;
     console.log(`Loading add user page`);
-    
+
     res.render('add_user');
 })
 
@@ -94,5 +94,17 @@ router.put('/:userId', (req, res) => {
 });
 
 //delete user -> delete user and redirect to users
+router.delete('/:userId', (req, res) => {
+    const userId = req.params.userId;
+    console.log(`Deleting user: ${userId}`)
+
+    UserModel.findByIdAndRemove(userId)
+        .then((user) => {
+            res.redirect(`/users/`);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+});
 
 module.exports = router;
