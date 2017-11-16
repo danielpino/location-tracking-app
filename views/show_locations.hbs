@@ -1,10 +1,18 @@
-<h2>All Locations</h2>
+<h2>All Locations for {{user.firstName}}</h2>
 
-{{#each users}}
+{{#each locations}}
 <p>
-    Name: {{this.lastName}}, {{this.firstName}}
-    <br> Email: {{this.email}}
-    <br> <a href='/users/{{this.id}}/edit'>Edit {{this.firstName}}</a>
-    <br> <a href='/users/{{this.id}}/locations'>Show {{this.firstName}}'s locations</a>
+    Street Address: {{this.streetAddress}}
+    <br> City: {{this.city}}
+    <br> State: {{this.state}}
+    <br> Zip: {{this.zip}}
+    <br> Scheduled?: {{this.scheduled}}
+    <br> Name: {{this.lastName}}, {{this.firstName}}
+    <br>
+    <br>
+    <a href='/users/{{../user.id}}/locations/{{this.id}}'>Edit Location</a>
 </p>
 {{/each}}
+
+<br>
+<a href='/users/{{user.id}}/locations/add'>Add Location</a>

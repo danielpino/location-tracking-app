@@ -1,0 +1,36 @@
+<div>
+    <form action="/users/{{user.id}}/locations/{{location.id}}?_method=PUT" method="POST">
+        <div class="form-group">
+            <input type="hidden" name="id" value="{{location.id}}">
+        </div>
+        <div class="form-group">
+            <label for="streetAddress">Street Address:</label>
+            <input type="text" name="streetAddress" value="{{location.streetAddress}}">
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" name="city" value="{{location.city}}">
+        </div>
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input type="text" name="state" value="{{location.state}}">
+        </div>
+        <div class="form-group">
+            <label for="zip">Zip:</label>
+            <input type="text" name="zip" value="{{location.zip}}">
+        </div>
+        <div class="form-group">
+            <label for="scheduled">Scheduled:</label>
+            <input type="text" name="scheduled" value="{{location.scheduled}}">
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Update Location">
+        </div>
+    </form>
+    <form action='/users/{{user.id}}/locations/{{location.id}}?_method=DELETE' method="post">
+        <button>Delete Location</button>
+    </form>
+
+    <br>
+</div>

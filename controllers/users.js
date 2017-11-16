@@ -20,7 +20,7 @@ router.use('/:userId/locations', locationsController);
 
 //get users -> render show_user view
 router.get('/', (req, res) => {
-    console.log(`Loading all users`)
+    console.log(`Loading all users`);
     UserModel.find({})
         .then((users) => {
             console.log(users);
@@ -63,7 +63,7 @@ router.get('/:userId', (req, res) => {
     console.log(`Loading user page`);
     UserModel.findById(userId)
         .then((user) => {
-            res.send(user);
+            res.render('show_locations', {user});
         })
         .catch((error) => {
             console.log(error);
