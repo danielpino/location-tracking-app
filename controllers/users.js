@@ -28,6 +28,20 @@ router.get('/', (req, res) => {
 
 //get add user page -> render add_user view
 //post user -> add new user and redirect to get users
+router.post('/', function (req, res) {
+    console.log(`Adding a new student`);
+    var newUser = req.body;
+    var user = new UserModel({
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        email: newUser.email
+    });
+    user.save(function (err, user) {
+        if (err) console.log(err);
+        console.log(user);
+        res.redirect('/users');
+    });
+});
 
 //get specific user -> render show_one_user view
 //edit specific user -> get user and render edit_user page
