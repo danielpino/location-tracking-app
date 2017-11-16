@@ -5,9 +5,9 @@ var router = express.Router({
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 
-const Schema = require("../db/schema.js")
-const StudentModel = Schema.StudentModel
-const ProjectModel = Schema.ProjectModel
+const Schema = require("../db/schema.js");
+const LocationModel = Schema.LocationModel;
+const UserModel = Schema.UserModel;
 
 router.use(bodyParser.urlencoded({
     extended: true
@@ -15,6 +15,16 @@ router.use(bodyParser.urlencoded({
 router.use(methodOverride('_method'));
 
 //get users -> render show_user view
+router.get('/', (req, res) => {
+    console.log(`Loading all users`)
+    UserModel.find({})
+        .then((users) => {
+            res.send(users);
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 //get add user page -> render add_user view
 //post user -> add new user and redirect to get users
