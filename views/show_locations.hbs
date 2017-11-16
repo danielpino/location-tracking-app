@@ -1,14 +1,10 @@
-<h3>All Locations for {{user.firstName}}</h3>
+<h5>All Locations for {{user.firstName}}</h5>
 
-{{#each locations}}
-    {{#if this.scheduled}} Scheduled for: {{else}} Not Yet Scheduled{{/if}}
-    <br>{{this.streetAddress}}
-    <br>{{this.city}}, {{this.state}} {{this.zip}}
-
-    <br>
-    <a href='/users/{{../user.id}}/locations/{{this.id}}'>Edit Location</a>
-    <br><br>
-{{/each}}
+{{#each locations}} {{#if this.scheduled}} Already Scheduled! {{else}} Not Yet Scheduled.{{/if}}
+<br>{{this.streetAddress}}
+<br>{{this.city}}, {{this.state}} {{this.zip}}
 
 <br>
-<a href='/users/{{user.id}}/locations/add'>Add Location</a>
+<a href='/users/{{../user.id}}/locations/{{this.id}}'>Edit Location</a>
+<br>
+<br>{{else}} No locations! Please <a href="/users/{{user.id}}/locations/add">Add Some!</a>{{/each}} 

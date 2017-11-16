@@ -3,85 +3,53 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Location Service</title>
-    <meta name="description" content="Write some words to describe your html page">
 
-    <style>
-        div.container {
-            width: 100%;
-            border: 1px solid gray;
-        }
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-        header,
-        footer {
-            padding: 1em;
-            color: white;
-            background-color: black;
-            clear: left;
-            text-align: center;
-        }
-
-        nav {
-            float: left;
-            width: 200px;
-            margin: 0;
-            padding: 1em;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul a {
-            text-decoration: none;
-        }
-
-        nav li {
-            margin-bottom: 5px;
-        }
-
-        article {
-            margin-left: 170px;
-            border-left: 1px solid gray;
-            padding: 1em;
-            overflow: hidden;
-        }
-    </style>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
     <div class="container">
         <header>
-            <h1>Location Tracker</h1>
+            
         </header>
 
         <nav>
-            <ul> <h3>User Controls</h3>
+            <ul>
+                <li>
+                    <a href="/">Location Tracker Home!</a>
+                </li>
                 <li>
                     <a href="/users">View Users</a>
                 </li>
                 <li>
                     <a href="/users/add">Add Users</a>
                 </li>
-                </ul>
-                {{#if user.id}}
-                <ul><h3>Location Controls</h3>
                 <li>
+                    {{#if user.id}}
                     <a href="/users/{{user.id}}/locations">View {{user.firstName}}'s Locations</a>
                 </li>
                 <li>
                     <a href="/users/{{user.id}}/locations/add">Add Location for {{user.firstName}}</a>
                 </li>
-                </ul>
                 {{/if}}
             </ul>
         </nav>
 
-        <article>
+        <article class="waves-effect">
             {{{body}}}
         </article>
 
-        <footer>Writen by Daniel Pino to integrate node.js, express, and mongo into a heroku hosted service.</footer>
+        <footer class="page-footer">Writen by Daniel Pino to integrate node.js, express, and mongo into a heroku hosted service.</footer>
     </div>
 </body>
 

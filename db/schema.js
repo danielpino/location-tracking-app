@@ -5,7 +5,7 @@ if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 } else {
     console.log(`Connecting to local mongo`);
-    mongoose.connect('mongodb://localhost/students');
+    mongoose.connect('mongodb://localhost/users');
 }
 mongoose.connection.on('error', function (err) {
     console.error('MongoDB connection error: ' + err);
@@ -30,7 +30,7 @@ var LocationSchema = new Schema({
     city: String,
     state: String,
     zip: String,
-    scheduledTime: String
+    scheduled: String
 });
 var UserSchema = new Schema({
     firstName: String,

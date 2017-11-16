@@ -1,38 +1,38 @@
-<div>
-    <form action="/users/{{user.id}}/locations/{{location.id}}?_method=PUT" method="POST">
-        <div class="form-group">
-            <input type="hidden" name="id" value="{{location.id}}">
-        </div>
-        <div class="form-group">
-            <label for="streetAddress">Street Address:</label>
-            <input type="text" name="streetAddress" value="{{location.streetAddress}}">
-        </div>
-        <div class="form-group">
-            <label for="city">City:</label>
-            <input type="text" name="city" value="{{location.city}}">
-        </div>
-        <div class="form-group">
-            <label for="state">State:</label>
-            <input type="text" name="state" value="{{location.state}}">
-        </div>
-        <div class="form-group">
-            <label for="zip">Zip:</label>
-            <input type="text" name="zip" value="{{location.zip}}">
-        </div>
-        <div class="form-group">
-            <label for="scheduled">Scheduled Date for Visit:</label>
-            <input type="text" name="scheduled" value="{{location.scheduled}}">
-        </div>
-        <br>
-        <div>
-            <input type="submit" value="Update Location">
-        </div>
-    </form>
-    <form action='/users/{{user.id}}/locations/{{location.id}}?_method=DELETE' method="post">
-        <button>Delete Location</button>
-    </form>
+<form action="/users/{{user.id}}/locations/{{location.id}}?_method=PUT" method="POST">
+    <div class="form-group">
+        <input type="hidden" name="id" value="{{location.id}}">
+    </div>
+    <div class="input-field col s12">
+        <label for="streetAddress">Street Address:</label>
+        <input type="text" name="streetAddress" value="{{location.streetAddress}}">
+    </div>
+    <div class="input-field col s12">
+        <label for="city">City:</label>
+        <input type="text" name="city" value="{{location.city}}">
+    </div>
+    <div class="input-field col s12">
+        <label for="state">State:</label>
+        <input type="text" name="state" value="{{location.state}}">
+    </div>
+    <div class="input-field col s12">
+        <label for="zip">Zip:</label>
+        <input type="text" name="zip" value="{{location.zip}}">
+    </div>
 
-    <a href="/users/{{user.id}}/locations">Back to Locations for {{user.firstName}}</a>
-
+    <div class="switch">
+        <label>
+            Unscheduled
+            <input type="checkbox" name="scheduled">
+            <span class="lever"></span>
+            Scheduled
+        </label>
+    </div>
     <br>
-</div>
+    <div>
+<button class="btn waves-effect waves-light" type="submit" name="action">Update Location</button>    </div>
+</form>
+<form action='/users/{{user.id}}/locations/{{location.id}}?_method=DELETE' method="post">
+    <br>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Delete Location</button>
+</form>
+<br>

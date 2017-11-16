@@ -89,7 +89,7 @@ router.get('/:locationId', (req, res) => {
         });
 });
 
-//put user -> update existing user and redirect to get users
+//put location -> update existing location and redirect to get locations
 router.put('/:locationId', (req, res) => {
     const userId = req.params.userId;
     const locationId = req.params.locationId;
@@ -104,7 +104,7 @@ router.put('/:locationId', (req, res) => {
             oldLocation.city = updatedLocation.city;
             oldLocation.state = updatedLocation.state;
             oldLocation.zip = updatedLocation.zip;
-            oldLocation.scheduled = updatedLocation.titscheduledle;
+            oldLocation.scheduled = updatedLocation.scheduled;
             
             UserModel.findByIdAndUpdate(userId, user, {
                     new: true
