@@ -9,10 +9,14 @@ const Schema = require("../db/schema.js");
 const LocationModel = Schema.LocationModel;
 const UserModel = Schema.UserModel;
 
+var locationsController = require('../controllers/locations.js');
+
 router.use(bodyParser.urlencoded({
     extended: true
 }));
 router.use(methodOverride('_method'));
+
+router.use('/:userId/locations', locationsController);
 
 //get users -> render show_user view
 router.get('/', (req, res) => {
@@ -20,7 +24,9 @@ router.get('/', (req, res) => {
     UserModel.find({})
         .then((users) => {
             console.log(users);
-            res.render('show_users', {users});
+            res.render('show_users', {
+                users
+            });
         })
         .catch((error) => {
             console.log(error);
