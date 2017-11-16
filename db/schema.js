@@ -40,10 +40,10 @@ var UserSchema = new Schema({
 });
 
 var LocationModel = mongoose.model("Location", LocationSchema);
-var UserSchema = mongoose.model("User", UserSchema);
+var UserModel = mongoose.model("User", UserSchema);
 
 module.exports = {
     LocationModel,
-    UserSchema,
+    UserModel,
     db
 };
