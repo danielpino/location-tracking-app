@@ -87,7 +87,7 @@ router.put('/:userId', (req, res) => {
             new: true
         })
         .then((user) => {
-            res.redirect(`/users/${userId}`);
+            res.redirect(`/users`);
         })
         .catch((error) => {
             console.log(error);
