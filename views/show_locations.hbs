@@ -1,15 +1,13 @@
-<h2>All Locations for {{user.firstName}}</h2>
+<h3>All Locations for {{user.firstName}}</h3>
 
 {{#each locations}}
-<p>
-    Street Address: {{this.streetAddress}}
-    <br> City: {{this.city}}
-    <br> State: {{this.state}}
-    <br> Zip: {{this.zip}}
-    <br> Scheduled?: {{this.scheduled}}
+    {{#if this.scheduled}} Scheduled for: {{else}} Not Yet Scheduled{{/if}}
+    <br>{{this.streetAddress}}
+    <br>{{this.city}}, {{this.state}} {{this.zip}}
+
     <br>
     <a href='/users/{{../user.id}}/locations/{{this.id}}'>Edit Location</a>
-</p>
+    <br><br>
 {{/each}}
 
 <br>

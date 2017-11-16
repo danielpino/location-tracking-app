@@ -30,7 +30,7 @@ var LocationSchema = new Schema({
     city: String,
     state: String,
     zip: String,
-    scheduled: Boolean
+    scheduledTime: String
 });
 var UserSchema = new Schema({
     firstName: String,

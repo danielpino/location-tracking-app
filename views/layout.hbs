@@ -22,7 +22,7 @@
 
         nav {
             float: left;
-            max-width: 160px;
+            width: 200px;
             margin: 0;
             padding: 1em;
         }
@@ -34,6 +34,10 @@
 
         nav ul a {
             text-decoration: none;
+        }
+
+        nav li {
+            margin-bottom: 5px;
         }
 
         article {
@@ -48,17 +52,28 @@
 <body>
     <div class="container">
         <header>
-            <h1>Header</h1>
+            <h1>Location Tracker</h1>
         </header>
 
         <nav>
-            <ul>
+            <ul> <h3>User Controls</h3>
                 <li>
                     <a href="/users">View Users</a>
                 </li>
                 <li>
                     <a href="/users/add">Add Users</a>
                 </li>
+                </ul>
+                {{#if user.id}}
+                <ul><h3>Location Controls</h3>
+                <li>
+                    <a href="/users/{{user.id}}/locations">View {{user.firstName}}'s Locations</a>
+                </li>
+                <li>
+                    <a href="/users/{{user.id}}/locations/add">Add Location for {{user.firstName}}</a>
+                </li>
+                </ul>
+                {{/if}}
             </ul>
         </nav>
 
@@ -66,7 +81,7 @@
             {{{body}}}
         </article>
 
-        <footer>Footer</footer>
+        <footer>Writen by Daniel Pino to integrate node.js, express, and mongo into a heroku hosted service.</footer>
     </div>
 </body>
 
