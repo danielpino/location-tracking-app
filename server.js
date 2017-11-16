@@ -28,5 +28,5 @@ app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
     console.log(`Loading Main`);
-    res.send(`Hello World!`);
+    res.render('index');
 })

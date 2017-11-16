@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
     console.log(`Loading all users`)
     UserModel.find({})
         .then((users) => {
-            res.send(users);
+            res.render('show_users', users);
         })
         .catch((error) => {
             console.log(error);
