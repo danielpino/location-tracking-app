@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
     console.log(`Loading all users`)
     UserModel.find({})
         .then((users) => {
+            console.log(users);
             res.render('show_users', users);
         })
         .catch((error) => {
