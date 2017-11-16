@@ -27,6 +27,18 @@ router.get('/', (req, res) => {
 })
 
 //get add user page -> render add_user view
+router.get('/:userId', (req, res) => {
+    var userId = req.params.userId;
+    console.log(`Loading user page`)
+    UserModel.findById(userId)
+        .then((user) => {
+            res.send(user);
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
+
 //post user -> add new user and redirect to get users
 router.post('/', function (req, res) {
     console.log(`Adding a new student`);
