@@ -100,7 +100,7 @@ router.delete('/:userId', (req, res) => {
     console.log(`Deleting user: ${userId}`)
 
     UserModel.findByIdAndRemove(userId)
-        .then((user) => {
+        .then(() => {
             res.redirect(`/users/`);
         })
         .catch((error) => {
