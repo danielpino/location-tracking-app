@@ -11,9 +11,9 @@ Future versions of this app should call a google api to determine distances betw
 The app is built on node.js and utilizes mongo for storage. Materalize libraries are used on the front end for visualizations.
 
 Node dependencies used are:
-    - body-parser
-    - dotenv
-    - express
-    - hbs
-    - method-override
-    - mongoose
+* body-parser
+* dotenv
+* express
+* hbs
+* method-override
+* mongoose
