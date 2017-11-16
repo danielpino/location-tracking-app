@@ -22,15 +22,21 @@ router.get('/', (req, res) => {
             res.send(users);
         })
         .catch((error) => {
-            console.log(error)
-        })
-})
+            console.log(error);
+        });
+});
 
 //get add user page -> render add_user view
+router.get('/add', (req, res) => {
+    const userId = req.params.userId;
+    console.log(`Loading add user page`);
+    
+    res.render('add_user');
+})
 
 //post user -> add new user and redirect to get users
 router.post('/', function (req, res) {
-    console.log(`Adding a new student`);
+    console.log(`Adding a new user`);
     var newUser = req.body;
     var user = new UserModel({
         firstName: newUser.firstName,
@@ -47,30 +53,45 @@ router.post('/', function (req, res) {
 //get specific user -> render show_one_user view
 router.get('/:userId', (req, res) => {
     var userId = req.params.userId;
-    console.log(`Loading user page`)
+    console.log(`Loading user page`);
     UserModel.findById(userId)
         .then((user) => {
             res.send(user);
         })
         .catch((error) => {
-            console.log(error)
-        })
-})
+            console.log(error);
+        });
+});
 
 //edit specific user -> get user and render edit_user page
 router.get('/:userId/edit', (req, res) => {
     const userId = req.params.userId;
-    console.log(`Getting user: ${userId}`)
+    console.log(`Getting user: ${userId}`);
 
     UserModel.findById(userId)
         .then((user) => {
             res.render('edit_user', {
                 user
-            })
-        })
-})
+            });
+        });
+});
 
 //put user -> update existing user and redirect to get users
+router.put('/:userId', (req, res) => {
+    const userId = req.params.userId;
+    console.log(`Updating user: ${userId}`)
+    const updatedUser = req.body;
+
+    UserModel.findByIdAndUpdate(userId, updatedUser, {
+            new: true
+        })
+        .then((user) => {
+            res.redirect(`/users/${userId}`);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+});
 
 //delete user -> delete user and redirect to users
 
