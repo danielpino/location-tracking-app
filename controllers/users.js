@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
     UserModel.find({})
         .then((users) => {
             console.log(users);
-            res.render('show_users', users);
+            res.render('show_users', {users});
         })
         .catch((error) => {
             console.log(error);

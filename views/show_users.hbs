@@ -1,4 +1,9 @@
-Show Users: {{{users}}}
+<h2>All Users</h2>
+
 {{#each users}}
-    Name One: {{this.firstName}}
+<p>
+    Name: {{this.lastName}}, {{this.firstName}}
+    <br> Email: {{this.email}}
+
+</p>
 {{/each}}
